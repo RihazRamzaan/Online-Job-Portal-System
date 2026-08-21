@@ -1,1 +1,34 @@
-/* TODO: tables.css (owner: Member C) */
+/* Table Styles */
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-md);
+    background-color: var(--color-bg-surface);
+}
+
+.admin-table th, 
+.admin-table td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-table th {
+    background-color: #f1f3f5;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.admin-table tbody tr:hover {
+    background-color: var(--color-bg-base);
+}
+
+.admin-table .actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
