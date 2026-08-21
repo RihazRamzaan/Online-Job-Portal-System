@@ -114,33 +114,33 @@ if ($cat_result) {
         
         <div class="form-group">
             <label for="title">Job Title *</label>
-            <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($job['title']); ?>" required>
+            <input type="text" id="title" name="title" class="form-control" value="<?php echo htmlspecialchars($job['title']); ?>" required>
         </div>
         
         <div class="form-group">
             <label for="company_name">Company Name *</label>
-            <input type="text" id="company_name" name="company_name" value="<?php echo htmlspecialchars($job['company_name']); ?>" required>
+            <input type="text" id="company_name" name="company_name" class="form-control" value="<?php echo htmlspecialchars($job['company_name']); ?>" required>
         </div>
         
         <div class="form-group">
             <label for="location">Location *</label>
-            <input type="text" id="location" name="location" value="<?php echo htmlspecialchars($job['location']); ?>" required>
+            <input type="text" id="location" name="location" class="form-control" value="<?php echo htmlspecialchars($job['location']); ?>" required>
         </div>
         
         <div class="form-group row">
             <div class="col">
                 <label for="salary_min">Minimum Salary</label>
-                <input type="number" id="salary_min" name="salary_min" min="0" value="<?php echo htmlspecialchars($job['salary_min']); ?>">
+                <input type="number" id="salary_min" name="salary_min" class="form-control" min="0" value="<?php echo htmlspecialchars($job['salary_min']); ?>">
             </div>
             <div class="col">
                 <label for="salary_max">Maximum Salary</label>
-                <input type="number" id="salary_max" name="salary_max" min="0" value="<?php echo htmlspecialchars($job['salary_max']); ?>">
+                <input type="number" id="salary_max" name="salary_max" class="form-control" min="0" value="<?php echo htmlspecialchars($job['salary_max']); ?>">
             </div>
         </div>
         
         <div class="form-group">
             <label for="job_type">Job Type *</label>
-            <select id="job_type" name="job_type" required>
+            <select id="job_type" name="job_type" class="form-control" required>
                 <option value="Full-Time" <?php echo ($job['job_type'] === 'Full-Time') ? 'selected' : ''; ?>>Full-Time</option>
                 <option value="Part-Time" <?php echo ($job['job_type'] === 'Part-Time') ? 'selected' : ''; ?>>Part-Time</option>
                 <option value="Remote" <?php echo ($job['job_type'] === 'Remote') ? 'selected' : ''; ?>>Remote</option>
@@ -149,7 +149,7 @@ if ($cat_result) {
         
         <div class="form-group">
             <label for="category_id">Category *</label>
-            <select id="category_id" name="category_id" required>
+            <select id="category_id" name="category_id" class="form-control" required>
                 <?php foreach ($categories as $cat): ?>
                     <option value="<?php echo $cat['category_id']; ?>" <?php echo ($job['category_id'] == $cat['category_id']) ? 'selected' : ''; ?>>
                         <?php echo htmlspecialchars($cat['category_name']); ?>
@@ -161,7 +161,7 @@ if ($cat_result) {
         <!-- Status Dropdown: Added for Update step -->
         <div class="form-group">
             <label for="status">Job Status *</label>
-            <select id="status" name="status" required>
+            <select id="status" name="status" class="form-control" required>
                 <option value="active" <?php echo ($job['status'] === 'active') ? 'selected' : ''; ?>>Active</option>
                 <option value="closed" <?php echo ($job['status'] === 'closed') ? 'selected' : ''; ?>>Closed</option>
             </select>
@@ -169,7 +169,7 @@ if ($cat_result) {
         
         <div class="form-group">
             <label for="description">Job Description *</label>
-            <textarea id="description" name="description" rows="5" required><?php echo htmlspecialchars($job['description']); ?></textarea>
+            <textarea id="description" name="description" class="form-control" rows="5" required><?php echo htmlspecialchars($job['description']); ?></textarea>
         </div>
         
         <div class="form-actions">
