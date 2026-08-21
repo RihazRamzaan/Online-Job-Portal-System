@@ -81,33 +81,33 @@ if ($cat_result) {
     <form action="add_job.php" method="POST" class="admin-form">
         <div class="form-group">
             <label for="title">Job Title *</label>
-            <input type="text" id="title" name="title" required>
+            <input type="text" id="title" name="title" class="form-control" required>
         </div>
         
         <div class="form-group">
             <label for="company_name">Company Name *</label>
-            <input type="text" id="company_name" name="company_name" required>
+            <input type="text" id="company_name" name="company_name" class="form-control" required>
         </div>
         
         <div class="form-group">
             <label for="location">Location *</label>
-            <input type="text" id="location" name="location" required>
+            <input type="text" id="location" name="location" class="form-control" required>
         </div>
         
         <div class="form-group row">
             <div class="col">
                 <label for="salary_min">Minimum Salary</label>
-                <input type="number" id="salary_min" name="salary_min" min="0">
+                <input type="number" id="salary_min" name="salary_min" class="form-control" min="0">
             </div>
             <div class="col">
                 <label for="salary_max">Maximum Salary</label>
-                <input type="number" id="salary_max" name="salary_max" min="0">
+                <input type="number" id="salary_max" name="salary_max" class="form-control" min="0">
             </div>
         </div>
         
         <div class="form-group">
             <label for="job_type">Job Type *</label>
-            <select id="job_type" name="job_type" required>
+            <select id="job_type" name="job_type" class="form-control" required>
                 <option value="">Select Type</option>
                 <option value="Full-Time">Full-Time</option>
                 <option value="Part-Time">Part-Time</option>
@@ -117,7 +117,7 @@ if ($cat_result) {
         
         <div class="form-group">
             <label for="category_id">Category *</label>
-            <select id="category_id" name="category_id" required>
+            <select id="category_id" name="category_id" class="form-control" required>
                 <option value="">Select Category</option>
                 <?php foreach ($categories as $cat): ?>
                     <option value="<?php echo $cat['category_id']; ?>">
@@ -129,7 +129,7 @@ if ($cat_result) {
         
         <div class="form-group">
             <label for="description">Job Description *</label>
-            <textarea id="description" name="description" rows="5" required></textarea>
+            <textarea id="description" name="description" class="form-control" rows="5" required></textarea>
         </div>
         
         <div class="form-actions">
