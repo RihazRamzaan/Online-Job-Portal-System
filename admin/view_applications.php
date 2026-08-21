@@ -45,4 +45,55 @@ if (isset($conn)) {
     }
 }
 ?>
-<!-- TODO: HTML table for displaying applications (owner: Member C) -->
+<?php require_once '../includes/header.php'; ?>
+
+<main class="admin-container">
+    <div class="dashboard-header">
+        <h2>View Applications</h2>
+        <div class="dashboard-actions">
+            <a href="dashboard.php" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Applicant Name</th>
+                    <th>Email</th>
+                    <th>Applied For</th>
+                    <th>Date Applied</th>
+                    <th>Payment Status</th>
+                    <th>Amount</th>
+                    <th>Ref ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (empty($applications)): ?>
+                    <tr>
+                        <td colspan="7" style="text-align: center;">No applications found.</td>
+                    </tr>
+                <?php else: ?>
+                    <?php foreach ($applications as $app): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($app['applicant_name']); ?></td>
+                            <td><a href="mailto:<?php echo htmlspecialchars($app['applicant_email']); ?>"><?php echo htmlspecialchars($app['applicant_email']); ?></a></td>
+                            <td><?php echo htmlspecialchars($app['job_title']); ?></td>
+                            <td><?php echo date('M d, Y', strtotime($app['applied_at'])); ?></td>
+                            <td>
+                                <?php $status_class = strtolower($app['payment_status']); ?>
+                                <span class="badge status-<?php echo htmlspecialchars($status_class); ?>">
+                                    <?php echo ucfirst(htmlspecialchars($app['payment_status'])); ?>
+                                </span>
+                            </td>
+                            <td>$<?php echo number_format($app['payment_amount'], 2); ?></td>
+                            <td><span style="font-family: monospace; font-size: 0.85em;"><?php echo htmlspecialchars($app['transaction_ref'] ?? 'N/A'); ?></span></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<?php require_once '../includes/footer.php'; ?>
