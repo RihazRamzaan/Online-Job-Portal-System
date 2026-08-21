@@ -148,6 +148,11 @@
     font-weight: bold;
     color: white;
     margin-right: var(--spacing-md);
+    transition: transform 0.3s ease;
+}
+
+.job-card:hover .logo-avatar {
+    transform: scale(1.1) rotate(5deg);
 }
 
 /* Random logo colors based on char generation */
