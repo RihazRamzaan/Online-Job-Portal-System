@@ -54,8 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ";
         
         if ($stmt = $conn->prepare($update_query)) {
-            // "ssssiisiisii" -> 4 strings, 2 ints, 1 string, 2 ints, 1 string, 2 ints
-            $stmt->bind_param("ssssiisiisii", $title, $company_name, $company_logo, $location, $salary_min, $salary_max, $job_type, $category_id, $description, $status, $job_id, $admin_id);
+            // "ssssiisissii" -> 4 strings, 2 ints, 1 string, 1 int, 2 strings, 2 ints
+            $stmt->bind_param("ssssiisissii", $title, $company_name, $company_logo, $location, $salary_min, $salary_max, $job_type, $category_id, $description, $status, $job_id, $admin_id);
             
             if ($stmt->execute()) {
                 $message = "Job updated successfully!";
