@@ -64,12 +64,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!-- TODO: HTML confirmation or error display logic (owner: Member C) -->
 <?php if (!empty($success_message)): ?>
-    <div style="color: green; font-weight: bold; padding: 20px; border: 1px solid green;">
-        <?php echo htmlspecialchars($success_message); ?>
+    <div style="color: green; font-weight: bold; padding: 20px; border: 1px solid green; margin: 20px;">
+        <p><?php echo htmlspecialchars($success_message); ?></p>
+        <a href="../index.php" style="display: inline-block; margin-top: 10px; padding: 10px 15px; background: #28a745; color: white; text-decoration: none; border-radius: 5px;">Back to Home</a>
     </div>
 <?php endif; ?>
 <?php if (!empty($error_message)): ?>
-    <div style="color: red; padding: 20px; border: 1px solid red;">
-        <?php echo htmlspecialchars($error_message); ?>
+    <div style="color: red; padding: 20px; border: 1px solid red; margin: 20px;">
+        <p><?php echo htmlspecialchars($error_message); ?></p>
+        <a href="javascript:history.back()" style="display: inline-block; margin-top: 10px; padding: 10px 15px; background: #6c757d; color: white; text-decoration: none; border-radius: 5px;">Go Back</a>
     </div>
 <?php endif; ?>
