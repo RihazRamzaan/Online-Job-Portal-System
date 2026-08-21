@@ -156,4 +156,57 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // --- 3. Application Form Validation ---
+    // Expected HTML: <form id="applicationForm"> with inputs for applicant_name, applicant_email, cover_letter
+    const applicationForm = document.getElementById('applicationForm');
+    if (applicationForm) {
+        applicationForm.addEventListener('submit', function (e) {
+            let isValid = true;
+            
+            const nameInput = document.getElementById('applicant_name');
+            const emailInput = document.getElementById('applicant_email');
+            const coverLetterInput = document.getElementById('cover_letter');
+
+            // Validate Name
+            if (nameInput) {
+                if (!nameInput.value.trim()) {
+                    showError(nameInput, 'Full name is required.');
+                    isValid = false;
+                } else {
+                    clearError(nameInput);
+                }
+            }
+
+            // Validate Email
+            if (emailInput) {
+                if (!emailInput.value.trim()) {
+                    showError(emailInput, 'Email is required.');
+                    isValid = false;
+                } else if (!isValidEmail(emailInput.value.trim())) {
+                    showError(emailInput, 'Please enter a valid email address.');
+                    isValid = false;
+                } else {
+                    clearError(emailInput);
+                }
+            }
+
+            // Validate Cover Letter
+            if (coverLetterInput) {
+                if (!coverLetterInput.value.trim()) {
+                    showError(coverLetterInput, 'Cover letter is required.');
+                    isValid = false;
+                } else if (coverLetterInput.value.trim().length < 50) {
+                    showError(coverLetterInput, 'Cover letter must be at least 50 characters long.');
+                    isValid = false;
+                } else {
+                    clearError(coverLetterInput);
+                }
+            }
+
+            if (!isValid) {
+                e.preventDefault(); // Prevent form submission
+            }
+        });
+    }
+
 });
