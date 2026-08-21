@@ -156,4 +156,125 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // --- 3. Application Form Validation ---
+    // Expected HTML: <form id="applicationForm"> with inputs for applicant_name, applicant_email, cover_letter
+    const applicationForm = document.getElementById('applicationForm');
+    if (applicationForm) {
+        applicationForm.addEventListener('submit', function (e) {
+            let isValid = true;
+            
+            const nameInput = document.getElementById('applicant_name');
+            const emailInput = document.getElementById('applicant_email');
+            const coverLetterInput = document.getElementById('cover_letter');
+
+            // Validate Name
+            if (nameInput) {
+                if (!nameInput.value.trim()) {
+                    showError(nameInput, 'Full name is required.');
+                    isValid = false;
+                } else {
+                    clearError(nameInput);
+                }
+            }
+
+            // Validate Email
+            if (emailInput) {
+                if (!emailInput.value.trim()) {
+                    showError(emailInput, 'Email is required.');
+                    isValid = false;
+                } else if (!isValidEmail(emailInput.value.trim())) {
+                    showError(emailInput, 'Please enter a valid email address.');
+                    isValid = false;
+                } else {
+                    clearError(emailInput);
+                }
+            }
+
+            // Validate Cover Letter
+            if (coverLetterInput) {
+                if (!coverLetterInput.value.trim()) {
+                    showError(coverLetterInput, 'Cover letter is required.');
+                    isValid = false;
+                } else if (coverLetterInput.value.trim().length < 50) {
+                    showError(coverLetterInput, 'Cover letter must be at least 50 characters long.');
+                    isValid = false;
+                } else {
+                    clearError(coverLetterInput);
+                }
+            }
+
+            if (!isValid) {
+                e.preventDefault(); // Prevent form submission
+            }
+        });
+    }
+
+    // --- 4. Mock Payment Form Validation ---
+    // Expected HTML: <form id="paymentForm"> with inputs for card_name, card_number, expiry_date, cvv
+    const paymentForm = document.getElementById('paymentForm');
+    if (paymentForm) {
+        paymentForm.addEventListener('submit', function (e) {
+            let isValid = true;
+            
+            const cardName = document.getElementById('card_name');
+            const cardNumber = document.getElementById('card_number');
+            const expiryDate = document.getElementById('expiry_date');
+            const cvv = document.getElementById('cvv');
+
+            // Validate Card Name
+            if (cardName) {
+                if (!cardName.value.trim()) {
+                    showError(cardName, 'Name on card is required.');
+                    isValid = false;
+                } else {
+                    clearError(cardName);
+                }
+            }
+
+            // Validate Card Number (Format only: 16 digits)
+            if (cardNumber) {
+                const numVal = cardNumber.value.replace(/\s+/g, '');
+                if (!numVal) {
+                    showError(cardNumber, 'Card number is required.');
+                    isValid = false;
+                } else if (!/^\d{16}$/.test(numVal)) {
+                    showError(cardNumber, 'Card number must be exactly 16 digits (mock validation).');
+                    isValid = false;
+                } else {
+                    clearError(cardNumber);
+                }
+            }
+
+            // Validate Expiry Date (Format MM/YY)
+            if (expiryDate) {
+                if (!expiryDate.value.trim()) {
+                    showError(expiryDate, 'Expiry date is required.');
+                    isValid = false;
+                } else if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiryDate.value.trim())) {
+                    showError(expiryDate, 'Expiry date must be in MM/YY format.');
+                    isValid = false;
+                } else {
+                    clearError(expiryDate);
+                }
+            }
+
+            // Validate CVV (3 or 4 digits)
+            if (cvv) {
+                if (!cvv.value.trim()) {
+                    showError(cvv, 'CVV is required.');
+                    isValid = false;
+                } else if (!/^\d{3,4}$/.test(cvv.value.trim())) {
+                    showError(cvv, 'CVV must be 3 or 4 digits.');
+                    isValid = false;
+                } else {
+                    clearError(cvv);
+                }
+            }
+
+            if (!isValid) {
+                e.preventDefault(); // Prevent form submission
+            }
+        });
+    }
+
 });
