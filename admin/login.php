@@ -57,8 +57,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<!-- TODO: HTML Form logic (owner: Member C) -->
-<!-- Example placeholder for error display: -->
-<?php if (!empty($error)): ?>
-    <div style="color: red;"><?php echo htmlspecialchars($error); ?></div>
-<?php endif; ?>
+<?php require_once __DIR__ . '/../includes/header.php'; ?>
+
+<div class="form-container login-container">
+    <h2>Admin Login</h2>
+    
+    <?php if (!empty($error)): ?>
+        <div class="alert alert-error" style="color: var(--color-status-failed); margin-bottom: var(--spacing-md);">
+            <?php echo htmlspecialchars($error); ?>
+        </div>
+    <?php endif; ?>
+    
+    <form action="login.php" method="POST" id="loginForm">
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
+</div>
+
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>
