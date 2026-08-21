@@ -13,12 +13,12 @@ For full project constraints, schema details, and endpoint contracts, please see
 
 As per the strict exam constraints, every team member was strictly responsible for specific files to avoid conflicts.
 
-| Role | Member Focus | Assigned Files / Folders |
+| Branch / Developer | Focus | Assigned Files / Folders |
 |:---|:---|:---|
-| **Member A** | Database & Admin CRUD | `config/db.php`, `admin/add_job.php`, `admin/dashboard.php`, `admin/edit_job.php`, `admin/delete_job.php` |
-| **Member B** | Auth, Public Jobs Backend, Mock Payment | `admin/login.php`, `admin/logout.php`, `includes/validate.php`, `jobs/index.php`, `apply/submit_application.php`, `apply/payment.php`, `admin/view_applications.php` |
-| **Member C** | Frontend Structure, HTML, CSS | `includes/header.php`, `includes/footer.php`, `apply/application_form.php`, All files inside the `css/` directory |
-| **Member D** | Client-Side Logic (JavaScript) | All files inside the `js/` directory (`validation.js`, `main.js`) |
+| `dev-rihaz-backend` | Database & Admin CRUD | `config/db.php`, `admin/add_job.php`, `admin/dashboard.php`, `admin/edit_job.php`, `admin/delete_job.php` |
+| `dev-pamith-auth` | Auth, Public Jobs Backend, Mock Payment | `admin/login.php`, `admin/logout.php`, `includes/validate.php`, `jobs/index.php`, `apply/submit_application.php`, `apply/payment.php`, `admin/view_applications.php` |
+| `dev-yasiru-frontend-ui` | Frontend Structure, HTML, CSS | `includes/header.php`, `includes/footer.php`, `apply/application_form.php`, All files inside the `css/` directory |
+| `dev-thanish-js` | Client-Side Logic (JavaScript) | All files inside the `js/` directory (`validation.js`, `main.js`) |
 
 ## ⚙️ Setup & Installation
 
