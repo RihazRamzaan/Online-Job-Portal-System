@@ -38,8 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $conn->prepare("INSERT INTO jobs (title, company_name, company_logo, location, salary_min, salary_max, job_type, category_id, description, posted_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         
         if ($stmt) {
-            // "ssssiissii" matches: 4 strings, 2 integers, 1 string, 1 integer, 1 string, 1 integer
-            $stmt->bind_param("ssssiissii", $title, $company_name, $company_logo, $location, $salary_min, $salary_max, $job_type, $category_id, $description, $posted_by);
+            // "ssssiisisi" matches: 4 strings, 2 integers, 1 string, 1 integer, 1 string, 1 integer (for posted_by)
+            // Wait, let's verify types:
+            // title (s), company_name (s), company_logo (s), location (s)
+            // salary_min (i), salary_max (i)
+            // job_type (s), category_id (i), description (s), posted_by (i)
+            $stmt->bind_param("ssssiisisi", $title, $company_name, $company_logo, $location, $salary_min, $salary_max, $job_type, $category_id, $description, $posted_by);
             
             if ($stmt->execute()) {
                 $message = "Job posted successfully!";

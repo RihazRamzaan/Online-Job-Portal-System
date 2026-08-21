@@ -41,7 +41,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validate
     if (empty($title) || empty($company_name) || empty($location) || empty($job_type) || empty($category_id) || empty($description)) {
-        $error = "All core fields are required.";
+        $missing = [];
+        if (empty($title)) $missing[] = "title";
+        if (empty($company_name)) $missing[] = "company_name";
+        if (empty($location)) $missing[] = "location";
+        if (empty($job_type)) $missing[] = "job_type";
+        if (empty($category_id)) $missing[] = "category_id ($category_id)";
+        if (empty($description)) $missing[] = "description";
+        $error = "All core fields are required. Missing: " . implode(', ', $missing);
     } elseif ($salary_min > $salary_max && $salary_max > 0) {
         $error = "Minimum salary cannot be greater than maximum salary.";
     } else {
