@@ -163,8 +163,8 @@ document.addEventListener('DOMContentLoaded', function () {
         applicationForm.addEventListener('submit', function (e) {
             let isValid = true;
             
-            const nameInput = document.getElementById('applicant_name');
-            const emailInput = document.getElementById('applicant_email');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
             const coverLetterInput = document.getElementById('cover_letter');
 
             // Validate Name

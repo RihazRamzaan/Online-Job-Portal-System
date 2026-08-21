@@ -1,4 +1,4 @@
-    </main>
+   </main>
     <footer class="site-footer">
         <div class="container footer-container">
             <p>&copy; <?= date('Y') ?> Online Job Portal System. All rights reserved.</p>
