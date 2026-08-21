@@ -49,7 +49,8 @@ require_once '../includes/header.php';
         
         <div class="form-group">
             <label for="cover_letter">Cover Letter <span class="required">*</span></label>
-            <textarea id="cover_letter" name="cover_letter" class="form-control" rows="6" required></textarea>
+            <textarea id="cover_letter" name="cover_letter" class="form-control" rows="6" placeholder="Please provide details (minimum 50 characters)..." required></textarea>
+            <small style="display:block; margin-top:4px; font-size:0.85em; color:#666;">* Minimum 50 characters required.</small>
         </div>
         
         <button type="submit" class="btn btn-primary btn-block">Continue to Payment</button>
