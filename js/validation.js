@@ -209,4 +209,72 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // --- 4. Mock Payment Form Validation ---
+    // Expected HTML: <form id="paymentForm"> with inputs for card_name, card_number, expiry_date, cvv
+    const paymentForm = document.getElementById('paymentForm');
+    if (paymentForm) {
+        paymentForm.addEventListener('submit', function (e) {
+            let isValid = true;
+            
+            const cardName = document.getElementById('card_name');
+            const cardNumber = document.getElementById('card_number');
+            const expiryDate = document.getElementById('expiry_date');
+            const cvv = document.getElementById('cvv');
+
+            // Validate Card Name
+            if (cardName) {
+                if (!cardName.value.trim()) {
+                    showError(cardName, 'Name on card is required.');
+                    isValid = false;
+                } else {
+                    clearError(cardName);
+                }
+            }
+
+            // Validate Card Number (Format only: 16 digits)
+            if (cardNumber) {
+                const numVal = cardNumber.value.replace(/\s+/g, '');
+                if (!numVal) {
+                    showError(cardNumber, 'Card number is required.');
+                    isValid = false;
+                } else if (!/^\d{16}$/.test(numVal)) {
+                    showError(cardNumber, 'Card number must be exactly 16 digits (mock validation).');
+                    isValid = false;
+                } else {
+                    clearError(cardNumber);
+                }
+            }
+
+            // Validate Expiry Date (Format MM/YY)
+            if (expiryDate) {
+                if (!expiryDate.value.trim()) {
+                    showError(expiryDate, 'Expiry date is required.');
+                    isValid = false;
+                } else if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiryDate.value.trim())) {
+                    showError(expiryDate, 'Expiry date must be in MM/YY format.');
+                    isValid = false;
+                } else {
+                    clearError(expiryDate);
+                }
+            }
+
+            // Validate CVV (3 or 4 digits)
+            if (cvv) {
+                if (!cvv.value.trim()) {
+                    showError(cvv, 'CVV is required.');
+                    isValid = false;
+                } else if (!/^\d{3,4}$/.test(cvv.value.trim())) {
+                    showError(cvv, 'CVV must be 3 or 4 digits.');
+                    isValid = false;
+                } else {
+                    clearError(cvv);
+                }
+            }
+
+            if (!isValid) {
+                e.preventDefault(); // Prevent form submission
+            }
+        });
+    }
+
 });
