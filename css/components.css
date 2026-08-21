@@ -1,1 +1,203 @@
-/* TODO: components.css (owner: Member C) */
+/* Components */
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-base);
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+    transition: all 0.15s ease-in-out;
+    text-decoration: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: var(--color-text-muted);
+    border-color: var(--color-text-muted);
+}
+
+.btn-secondary:hover {
+    background-color: #5c636a;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-outline {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background-color: transparent;
+}
+
+.btn-outline:hover {
+    background-color: var(--color-accent);
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: var(--color-status-failed);
+    border-color: var(--color-status-failed);
+}
+
+.btn-danger:hover {
+    background-color: #b02a37;
+    color: #fff;
+}
+
+.btn-small {
+    padding: 0.25rem 0.5rem;
+    font-size: var(--font-size-sm);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: 0.75em;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 50rem;
+    color: #fff;
+}
+
+.status-active { background-color: var(--color-status-paid); }
+.status-closed { background-color: var(--color-text-muted); }
+
+.status-paid { background-color: var(--color-status-paid); }
+.status-pending { background-color: var(--color-status-pending); color: #000; }
+.status-failed { background-color: var(--color-status-failed); }
+
+.badge-fulltime { background-color: var(--color-accent); }
+.badge-parttime { background-color: var(--color-status-pending); color: #000; }
+.badge-remote { background-color: #17a2b8; }
+
+/* Job Cards */
+.job-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.job-card {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+.job-card:hover {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.job-card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.logo-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+    color: white;
+    margin-right: var(--spacing-md);
+}
+
+/* Random logo colors based on char generation */
+.logo-color-1 { background-color: #0d6efd; } /* Blue */
+.logo-color-2 { background-color: #198754; } /* Green */
+.logo-color-3 { background-color: #dc3545; } /* Red */
+.logo-color-4 { background-color: #ffc107; color: #000; } /* Yellow */
+.logo-color-5 { background-color: #6f42c1; } /* Purple */
+
+.job-title {
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-lg);
+}
+
+.company-name {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    margin-bottom: 0;
+}
+
+.job-card-body {
+    flex-grow: 1;
+}
+
+.job-details {
+    margin-bottom: var(--spacing-md);
+}
+
+.job-details li {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text-muted);
+}
+
+.job-badges {
+    margin-bottom: var(--spacing-md);
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--spacing-xxl);
+    background-color: var(--color-bg-surface);
+    border-radius: var(--border-radius);
+    color: var(--color-text-muted);
+}
+
+/* Alerts */
+.alert {
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-md);
+}
+
+.alert.success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+.alert.error, .alert-error {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}

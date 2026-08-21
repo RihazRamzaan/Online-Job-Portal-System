@@ -1,1 +1,68 @@
-/* TODO: layout.css (owner: Member C) */
+/* Layout Styles */
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.site-header {
+    background-color: var(--color-bg-surface);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-md) 0;
+    margin-bottom: var(--spacing-xl);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+.brand-logo:hover {
+    text-decoration: none;
+}
+
+.site-nav ul {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.main-content {
+    min-height: calc(100vh - 200px);
+    margin-bottom: var(--spacing-xxl);
+}
+
+.admin-container {
+    background-color: var(--color-bg-surface);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-md);
+}
+
+.site-footer {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    color: var(--color-text-muted);
+    border-top: 1px solid var(--border-color);
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
