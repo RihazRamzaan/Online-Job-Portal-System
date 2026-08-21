@@ -73,10 +73,6 @@ if ($stmt = $conn->prepare($query)) {
 <main class="admin-container">
     <h2>View Applications</h2>
     
-    <!-- Handoff Note for the team -->
-    <div style="background-color: #e6f7ff; padding: 15px; border-left: 4px solid #1890ff; margin-bottom: 20px;">
-        <p><strong>Member B / Member C:</strong> The backend SQL JOIN is complete! The <code>$applications</code> array contains all the data you need (including the job title and payment status). You can build out the HTML table below this banner.</p>
-    </div>
 
     <div class="table-responsive">
         <table class="admin-table">
