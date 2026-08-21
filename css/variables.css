@@ -1,1 +1,38 @@
-/* TODO: variables.css (owner: Member C) */
+:root {
+    /* Color Palette */
+    --color-bg-base: #f8f9fa; /* Light gray background */
+    --color-bg-surface: #ffffff; /* White surface for cards/containers */
+    --color-text-dark: #212529; /* Dark text */
+    --color-text-muted: #6c757d;
+    --color-accent: #0d6efd; /* Blue primary accent */
+    --color-accent-hover: #0b5ed7;
+    
+    /* Status Colors */
+    --color-status-paid: #198754; /* Green */
+    --color-status-pending: #ffc107; /* Amber */
+    --color-status-failed: #dc3545; /* Red */
+    
+    /* Typography */
+    --font-primary: 'Segoe UI', Arial, sans-serif;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.75rem;
+    --line-height-base: 1.5;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+    
+    /* Layout */
+    --container-max-width: 1000px;
+    
+    /* UI Elements */
+    --border-radius: 6px;
+    --border-color: #dee2e6;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+}
