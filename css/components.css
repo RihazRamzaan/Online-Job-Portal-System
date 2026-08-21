@@ -16,6 +16,16 @@
     text-decoration: none;
 }
 
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
 .btn-primary {
     color: #fff;
     background-color: var(--color-accent);
