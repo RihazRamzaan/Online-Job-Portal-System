@@ -14,7 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cover_letter = isset($_POST['cover_letter']) ? sanitize_input($_POST['cover_letter']) : '';
     
     // Mock Payment fields
-    $card_number = isset($_POST['card_number']) ? sanitize_input($_POST['card_number']) : '';
+    $card_number_raw = isset($_POST['card_number']) ? sanitize_input($_POST['card_number']) : '';
+    // Strip out spaces added by JS auto-formatting so it validates as exactly 16 digits
+    $card_number = str_replace(' ', '', $card_number_raw);
     $expiry = isset($_POST['expiry']) ? sanitize_input($_POST['expiry']) : '';
     $cvv = isset($_POST['cvv']) ? sanitize_input($_POST['cvv']) : '';
 

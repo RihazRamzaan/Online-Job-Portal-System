@@ -42,7 +42,7 @@ if (empty($job_id) || empty($name) || empty($email) || empty($cover_letter)) {
             
             <div class="form-group">
                 <label for="card_number">Card Number <span class="required">*</span></label>
-                <input type="text" id="card_number" name="card_number" class="form-control" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                <input type="text" id="card_number" name="card_number" class="form-control" placeholder="0000 0000 0000 0000" maxlength="19" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(.{4})/g, '$1 ').trim();" required>
             </div>
             
             <div class="form-row" style="display: flex; gap: var(--spacing-md);">
