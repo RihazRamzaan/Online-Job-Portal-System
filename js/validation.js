@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // --- 1. Admin Login Form Validation ---
-    // Expected HTML: <form id="loginForm"> with inputs <input id="email">, <input id="password">
-    const loginForm = document.getElementById('loginForm');
+    // Expected HTML: <form id="loginForm"> or <form action="login.php">
+    const loginForm = document.getElementById('loginForm') || document.querySelector('form[action="login.php"]');
     if (loginForm) {
         loginForm.addEventListener('submit', function (e) {
             let isValid = true;
@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // --- 2. Add / Edit Job Form Validation ---
-    // Expected HTML: <form id="jobForm"> with corresponding field IDs
-    const jobForm = document.getElementById('jobForm');
+    // Expected HTML: <form id="jobForm"> or action pointing to add_job.php / edit_job.php
+    const jobForm = document.getElementById('jobForm') || document.querySelector('form[action="add_job.php"], form[action="edit_job.php"]');
     if (jobForm) {
         jobForm.addEventListener('submit', function (e) {
             let isValid = true;
@@ -157,8 +157,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // --- 3. Application Form Validation ---
-    // Expected HTML: <form id="applicationForm"> with inputs for applicant_name, applicant_email, cover_letter
-    const applicationForm = document.getElementById('applicationForm');
+    // Expected HTML: <form id="applicationForm"> or action pointing to application submission
+    const applicationForm = document.getElementById('applicationForm') || document.querySelector('form[action="payment.php"]');
     if (applicationForm) {
         applicationForm.addEventListener('submit', function (e) {
             let isValid = true;
@@ -210,8 +210,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // --- 4. Mock Payment Form Validation ---
-    // Expected HTML: <form id="paymentForm"> with inputs for card_name, card_number, expiry_date, cvv
-    const paymentForm = document.getElementById('paymentForm');
+    // Expected HTML: <form id="paymentForm"> or action pointing to submit_application.php
+    const paymentForm = document.getElementById('paymentForm') || document.querySelector('form[action="submit_application.php"]');
     if (paymentForm) {
         paymentForm.addEventListener('submit', function (e) {
             let isValid = true;
