@@ -23,7 +23,7 @@ if (isset($conn)) {
 
     // Base query to fetch active jobs only
     $query = "SELECT j.job_id, j.title, j.company_name, j.company_logo, j.location, 
-                     j.salary_min, j.salary_max, j.job_type, j.created_at, c.category_name 
+                     j.salary_min, j.salary_max, j.job_type, j.description, j.created_at, c.category_name 
               FROM jobs j 
               LEFT JOIN categories c ON j.category_id = c.category_id 
               WHERE j.status = 'active'";
@@ -137,6 +137,11 @@ if (isset($conn)) {
                     </div>
                 </div>
                 <div class="job-card-body">
+                    <?php if (!empty($job['description'])): ?>
+                        <p class="job-description" style="color: #666; font-size: 0.9em; margin-bottom: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            <?php echo htmlspecialchars(strlen($job['description']) > 150 ? substr($job['description'], 0, 150) . '...' : $job['description']); ?>
+                        </p>
+                    <?php endif; ?>
                     <ul class="job-details">
                         <li>📍 <?php echo htmlspecialchars($job['location']); ?></li>
                         <li>💼 <?php echo htmlspecialchars($job['category_name'] ?? 'Uncategorized'); ?></li>
